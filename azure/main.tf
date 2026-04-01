@@ -25,6 +25,12 @@ data "azurerm_subnet" "public" {
   resource_group_name  = var.existing_virtual_network.resource_group_name
 }
 
+data "azurerm_subnet" "ha" {
+  name                 = var.existing_virtual_network.subnet_ha
+  virtual_network_name = data.azurerm_virtual_network.vnet.name
+  resource_group_name  = var.existing_virtual_network.resource_group_name
+}
+
 # ---------------------------------------------------------------------------
 # Firewall resource group
 # ---------------------------------------------------------------------------
